@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 import LocationCard from './LocationCard'
-import usePagination from "../hooks/usePagination";
+import usePagination from "../hooks/usePagination"
 
 export default function LocationsList() {
     const [locations, incrementPage, decrementPage] = usePagination("https://rickandmortyapi.com/api/location")

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 export default function SearchForm({ onSearch }) {
   // STRETCH TODO: Add stateful logic for query/form data
@@ -14,5 +14,5 @@ export default function SearchForm({ onSearch }) {
         <button type="submit">Search</button>
       </form>
     </section>
-  );
+  )
 }
