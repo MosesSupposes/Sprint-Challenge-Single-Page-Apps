@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom"
 
 import CharacterList from './CharacterList'
 import LocationsList from './LocationsList'
+import EpisodeList from './EpisodeList'
 
 // TODO: Add missing tabs below
 // Take a look at React Semantic UI tabs 
@@ -12,7 +13,7 @@ import LocationsList from './LocationsList'
 const panes = [
     { menuItem: 'Characters', render: () => <Tab.Pane><CharacterList /></Tab.Pane> },
     { menuItem: 'Locations', render: () => <Tab.Pane><LocationsList /></Tab.Pane> },
-    { menuItem: 'Episodes', render: () => <Tab.Pane>Episodes</Tab.Pane> }
+    { menuItem: 'Episodes', render: () => <Tab.Pane><EpisodeList /></Tab.Pane> }
 ]
 
 export default function TabNav() {
