@@ -11,12 +11,41 @@ import EpisodeList from './EpisodeList'
 // https://react.semantic-ui.com/modules/tab/
 
 const panes = [
-    { menuItem: 'Characters', render: () => <Tab.Pane><CharacterList /></Tab.Pane> },
-    { menuItem: 'Locations', render: () => <Tab.Pane><LocationsList /></Tab.Pane> },
-    { menuItem: 'Episodes', render: () => <Tab.Pane><EpisodeList /></Tab.Pane> }
+    { 
+        menuItem: 'Characters', 
+        render: () =>(
+            <NavLink to="/characters">
+                <Tab.Pane>
+                    <CharacterList />
+                </Tab.Pane> 
+            </NavLink>
+        )
+    },
+    { 
+        menuItem: 'Locations', 
+        render: () => (
+            <Tab.Pane>
+                <NavLink to="/locations">
+                    <LocationsList />
+                </NavLink>
+            </Tab.Pane> 
+        )
+    },
+    { 
+        menuItem: 'Episodes', 
+        render: () => (
+         <Tab.Pane>
+             <NavLink to="/episodes">
+                <EpisodeList />
+             </NavLink>
+        </Tab.Pane> 
+        )
+    }
 ]
 
 export default function TabNav() {
     return <Tab panes={panes} />
 }
+
+
 
