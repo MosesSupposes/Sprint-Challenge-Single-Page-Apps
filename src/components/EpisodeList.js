@@ -1,31 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 import EpisodeCard from './EpisodeCard'
+import usePagination from '../hooks/usePagination'
 
 export default function EpisodeList() {
-    const [page, setPage] = useState(1)
-    const [episodes, setEpisodes] = useState()
-
-    useEffect(() => {
-        axios
-            .get(`https://rickandmortyapi.com/api/episode/?page=${page}`)
-            .then(res => {
-                setEpisodes(res.data)
-            })
-    }, [page])
-
-    const incrementPage = () => {
-        if (page < episodes.info.pages) {
-          setPage(page + 1)
-        }
-      }
-    
-    const decrementPage = () => {
-        if (page > 1) {
-          setPage(page - 1)
-        }
-    }
+    const [episodes, incrementPage, decrementPage] = usePagination("https://rickandmortyapi.com/api/episode")
 
     return (
         <>

@@ -1,30 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import React from "react";
 
 import LocationCard from './LocationCard'
+import usePagination from "../hooks/usePagination";
 
-export default function LocationsList(props) {
-    const [page, setPage] = useState(1)
-    const [locations, setLocations] = useState()
-    
-    const incrementPage = () => {
-        if (page < locations.info.pages) {
-          setPage(page + 1)
-        }
-      }
-    
-      const decrementPage = () => {
-        if (page > 1) {
-          setPage(page - 1)
-        }
-      }
-    useEffect(() => {
-        axios
-            .get(`https://rickandmortyapi.com/api/location/?page=${page}`)
-            .then(res => {
-                setLocations(res.data)
-            })
-    }, [page])
+export default function LocationsList() {
+    const [locations, incrementPage, decrementPage] = usePagination("https://rickandmortyapi.com/api/location")
     
     return (
         <>
