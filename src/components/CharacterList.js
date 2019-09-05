@@ -1,16 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React from "react"
+
+import CharacterCard from './CharacterCard'
+import usePagination from '../hooks/usePagination'
 
 export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
-
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  const [characters, incrementPage, decrementPage] = usePagination("https://rickandmortyapi.com/api/character")
 
   return (
+    <>
     <section className="character-list grid-view">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {(!characters)
+        ? 'Loading Character Data...'
+        : characters.results.map(function renderCharacterCards(char) {
+          return <CharacterCard key={char.id} character={char} />
+        })
+      }
     </section>
-  );
+
+    <div className="pagination-buttons-container">
+      <button className="pagination-button" onClick={decrementPage}>⬅️</button>
+      <button className="pagination-button" onClick={incrementPage}>➡️</button>
+    </div>
+    </>
+  )
 }
+
+
+

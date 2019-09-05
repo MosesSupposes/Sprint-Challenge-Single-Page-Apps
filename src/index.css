@@ -37,3 +37,16 @@ main {
 header h1 {
   text-align: center;
 }
+
+.pagination-buttons-container {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pagination-button {
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+}
